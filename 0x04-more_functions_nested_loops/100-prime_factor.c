@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	unsigned long num =  612852475143, max = 0, i = 2;
+	long num =  612852475143, max = 0, i = 2;
 
 	do {
 		if (num % i == 0)
@@ -16,8 +16,8 @@ int main(void)
 		}
 		else
 			i++;
-	} while (num > i * i);
+	} while (num >= i * i);
 
-	printf("%lu\n", max);
+	printf("%ld\n", max);
 	return (0);
 }
