@@ -20,7 +20,7 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 	if (len < n)
 	{
-		while (len <= n)
+		while (len < n)
 		{
 			*dest = '\0';
 			dest++, len++;
