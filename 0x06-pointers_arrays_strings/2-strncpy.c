@@ -10,7 +10,7 @@
 char *_strncpy(char *dest, char *src, int n)
 {
 	int len = 0;
-	while (len < n)
+	while (len <= n)
 	{
 		if (*src == '\0')
 			break;
