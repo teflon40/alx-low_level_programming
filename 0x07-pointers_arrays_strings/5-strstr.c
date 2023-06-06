@@ -31,15 +31,16 @@ char *_strstr(char *haystack, char *needle)
 	int len = 0;
 	char *p = haystack, *q = needle;
 
+	if (!*needle)
+		return (haystack);
 	while (*q)
 		len++, q++;
-	for (; *p; p++)
+	for (; *p ; p++)
 	{
 		if (*p == *needle)
 		{
 			if (!_strcmp(p, needle, len))
 				return (p);
-			continue;
 		}
 	}
 	return (NULL);
