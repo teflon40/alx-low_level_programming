@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * concatenates two strings
+ * str_concat - concatenates two strings
  * @s1: points to the first string.
  * @s2: points to the second string.
  * Return: a pointer to the newly allocated space
