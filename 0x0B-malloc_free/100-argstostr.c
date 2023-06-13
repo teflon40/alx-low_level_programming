@@ -29,14 +29,14 @@ char *argstostr(int ac, char **av)
 	tot_len = 0;
 	if (!ac || av == NULL)
 		return (NULL);
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 		tot_len += _strlen(av[i]);
 	s = (char *) malloc(sizeof(char) * tot_len + i + 1);
 	if (s == NULL)
 		return (NULL);
 
 	i = 0;
-	for (j = 1; j < ac; j++)
+	for (j = 0; j < ac; j++)
 	{
 		char *p;
 
