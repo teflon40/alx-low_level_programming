@@ -38,7 +38,9 @@ char **strtow(char *str)
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	words = (char **) malloc(sizeof(char *) * numOfwords);
+	if (!numOfwords)
+		return (NULL);
+	words = (char **) malloc(sizeof(char *) * (numOfwords + 1));
 	if (words == NULL)
 		return (NULL);
 	for (i = 0; i < numOfwords; i++)
