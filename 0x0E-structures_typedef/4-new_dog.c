@@ -13,19 +13,25 @@ char *_strcpy(char *, const char *);
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *ptr;
+	dog_t *dog_ptr;
 
 	if (name == NULL || age < 0 || owner == NULL)
 		return (NULL);
-	ptr = (dog_t *) malloc(sizeof(dog_t));
+	dog_ptr = (dog_t *) malloc(sizeof(dog_t));
 	if (ptr == NULL)
 		return (NULL);
-	ptr->name = (char *) malloc(sizeof(char) * (_strlen(name) + 1));
+	dog_ptr->name = (char *) malloc(sizeof(char) * (_strlen(name) + 1));
 	if (ptr->name == NULL)
+	{
+		free(dog_ptr);
 		return (NULL);
 	ptr->owner = (char *) malloc(sizeof(char) * (_strlen(owner) + 1));
 	if (ptr->owner == NULL)
+	{
+		free(dog_ptr->name);
+		free(dog_ptr);
 		return (NULL);
+	}
 	_strcpy(ptr->name, name);
 	_strcpy(ptr->owner, owner);
 	ptr->age = age;
