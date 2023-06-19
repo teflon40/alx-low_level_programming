@@ -4,7 +4,7 @@
 int _strlen(const char *);
 char *_strcpy(char *, const char *);
 /**
- * my_dog - creates a new dog
+ * new_dog - creates a new dog
  * @name: a pointer to a string
  * @age: a float parameter
  * @owner: a pointer to a string
@@ -15,6 +15,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *ptr;
 
+	if (name == NULL || !age || owner == NULL)
+		return (NULL);
 	ptr = (dog_t *) malloc(sizeof(dog_t));
 	if (ptr == NULL)
 		return (NULL);
