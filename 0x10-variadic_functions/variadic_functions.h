@@ -5,7 +5,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-/* Function prototypes */
+/* Function prototypes ...*/
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *, const unsigned int, ...);
 void print_strings(const char *, const unsigned int, ...);
