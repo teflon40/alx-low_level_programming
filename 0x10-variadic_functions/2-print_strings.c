@@ -20,8 +20,9 @@ void print_strings(const char *str, const unsigned int n, ...)
 			if (s == NULL)
 				s = "(nil)";
 			printf("%s", s);
-			if (str && i++ != n)
+			if (str && i != n)
 				printf("%s", str);
+			i++;
 		}
 	}
 	putchar('\n');
