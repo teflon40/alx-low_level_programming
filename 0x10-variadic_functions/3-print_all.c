@@ -13,13 +13,13 @@ void print_all(const char * const format, ...)
 	va_start(arg_l, format);
 	while (format && format[i])
 	{
-		switch(format[i])
+		switch (format[i])
 		{
 			case 'c':
 				printf("%c", va_arg(arg_l, int));
 				break;
 			case 'i':
-				printf("%d", va_arg(arg_l, int));
+				printf("%d",  (int) va_arg(arg_l, unsigned int));
 				break;
 			case 's':
 				s = va_arg(arg_l, char *);
