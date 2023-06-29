@@ -39,8 +39,8 @@ void print_all(const char * const format, ...)
 		{
 			putchar(',');
 			putchar(' ');
-			continue;
 		}
-		putchar('\n');
 	}
+	putchar('\n');
+	va_end(arg_l);
 }
