@@ -29,6 +29,14 @@ listint_t *insert_nodeint_at_index(listint_t **head,
 		}
 		pos++;
 	}
+
+	if (pos == idx)
+	{
+		new_node->next = (**temp_p).next;
+		*temp_p = new_node;
+		return (new_node);
+	}
+
 	if (idx == 0)
 	{
 		new_node->next = *head;
