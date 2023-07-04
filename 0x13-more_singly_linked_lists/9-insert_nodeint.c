@@ -26,7 +26,7 @@ listint_t *insert_nodeint_at_index(listint_t **head,
 		if (pos == idx - 1)
 		{
 			new_node->next = (**temp_p).next;
-			*temp_p = new_node;
+			(**temp_p).next = new_node;
 			return (new_node);
 		}
 		pos++;
@@ -38,6 +38,5 @@ listint_t *insert_nodeint_at_index(listint_t **head,
 		*head = new_node;
 		return (new_node);
 	}
-	free(new_node);
 	return (NULL);
 }
