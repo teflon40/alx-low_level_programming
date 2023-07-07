@@ -16,7 +16,12 @@ int get_bit(unsigned long int n, unsigned int index)
 	s = create_num_str(n, &len);
 	for (len--; len >= 0; i++, len--)
 		if (i == (int) index)
-			return (s[len] - '0');
+		{
+			i = s[len];
+			free(s);
+			return (i - '0');
+		}
+	free(s);
 	return (-1);
 }
 
