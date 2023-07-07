@@ -14,6 +14,8 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	i = 0;
 	s = create_num_str(n, &len);
+	if (s == NULL)
+		return (-1);
 	for (len--; len >= 0; i++, len--)
 		if (i == (int) index)
 		{
