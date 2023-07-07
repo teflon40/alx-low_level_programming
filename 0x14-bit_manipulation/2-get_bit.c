@@ -16,7 +16,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	int len = get_bin_len(n);
 	int pos = len, i = 0;
 
-	if(len <= (int) index)
+	if (len <= (int) index)
 		pos = len = index + 1;
 	num_str = malloc(sizeof(char) * (len + 1));
 	if (num_str == NULL)
@@ -44,10 +44,9 @@ int get_bit(unsigned long int n, unsigned int index)
 }
 
 /**
- * create_num_str - creates a string of 1 and 0 characters.
- * @n: an integer to be converted to binary.
- * @len: a pointer to the length of the string.
- * Return: a pointer to the string created.
+ * get_bin_len - creates a string of 1 and 0 characters.
+ * @num: an integer to be converted to binary.
+ * Return: the length of a number in binary.
  */
 int get_bin_len(unsigned long int num)
 {
