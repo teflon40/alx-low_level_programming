@@ -24,4 +24,9 @@ int _strlen(const char *);
 #define FAILURE -1
 #endif		/* end FAILURE */
 
+#ifndef BUFFSIZE
+#define BUFFSIZE 1024
+#endif		/* end BUFFSIZE */
+
+
 #endif		/* end MAIN_H */
