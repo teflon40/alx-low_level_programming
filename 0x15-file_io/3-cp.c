@@ -52,7 +52,7 @@ void print_error(int status, const char *format, ...)
 
 	va_start(ap, format);
 	if (status == 97)
-		dprintf(STDERR_FILENO, "%s\n", format);
+		dprintf(STDOUT_FILENO, "%s\n", format);
 	else if (status == 100)
 		dprintf(STDERR_FILENO, "%s %d\n", format, va_arg(ap, int));
 	else
