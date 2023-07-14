@@ -33,7 +33,7 @@ int main(int ac, char *av[])
 			print_error(99, "Error: Can't write to %s\n", av[2]);
 
 	if (num_read < 0)
-		print_error(98, "Error: Can't read from %s\n", av[2]);
+		print_error(98, "Error: Can't read from %s\n", av[1]);
 	if (close(in_fd) < 0)
 		print_error(100, "Error: Can't close fd %d\n", in_fd);
 	if (close(out_fd) < 0)
