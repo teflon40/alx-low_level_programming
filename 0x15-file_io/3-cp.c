@@ -16,7 +16,7 @@ int main(int ac, char *av[])
 	ssize_t num_read;
 
 	if (ac != 3)
-		print_error(98, "Usage: file_from file_to");
+		print_error(97, "Usage: file_from file_to\n");
 	in_fd = open(av[1], O_RDONLY);
 	if (in_fd < 0)
 		print_error(98, "Error: Can't read from file %s\n", av[1]);
@@ -27,17 +27,17 @@ int main(int ac, char *av[])
 
 	out_fd = open(av[2], open_flags, file_perms);
 	if (out_fd < 0)
-		print_error(99, "Error: Can't write to", av[2]);
+		print_error(99, "Error: Can't write to %s\n", av[2]);
 	while ((num_read = read(in_fd, buf, BUFFSIZE)) > 0)
 		if (write(out_fd, buf, num_read) != num_read)
-			print_error(99, "Error: Can't write to", av[2]);
+			print_error(99, "Error: Can't write to %s\n", av[2]);
 
 	if (num_read < 0)
-		print_error(98, "Error: Can't read from", av[2]);
+		print_error(98, "Error: Can't read from %s\n", av[2]);
 	if (close(in_fd) < 0)
-		print_error(100, "Error: Can't close fd", in_fd);
+		print_error(100, "Error: Can't close fd %d\n", in_fd);
 	if (close(out_fd) < 0)
-		print_error(100, "Error: Can't close fd", out_fd);
+		print_error(100, "Error: Can't close fd %d\n", out_fd);
 	return (0);
 }
 
@@ -52,11 +52,11 @@ void print_error(int status, const char *format, ...)
 
 	va_start(ap, format);
 	if (status == 97)
-		dprintf(STDOUT_FILENO, "%s\n", format);
+		dprintf(STDOUT_FILENO, "%s", format);
 	else if (status == 100)
-		dprintf(STDERR_FILENO, "%s %d\n", format, va_arg(ap, int));
+		dprintf(STDERR_FILENO, format, va_arg(ap, int));
 	else
-		dprintf(STDERR_FILENO, "%s %s\n", format, va_arg(ap, char *));
+		dprintf(STDERR_FILENO, format, va_arg(ap, char *));
 	va_end(ap);
 	exit(status);
 }
