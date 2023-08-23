@@ -22,6 +22,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h,
 	{
 		new->next = *h;
 		new->prev = NULL;
+		if (*head != NULL)
+			(*head)->prev = new;
 		*h = new;
 		return (new);
 	}
