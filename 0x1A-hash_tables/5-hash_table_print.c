@@ -1,6 +1,5 @@
 #include "hash_tables.h"
 
-typedef enum {EMPTY, NOT_EMPTY} htMode;
 /**
  * print_list - prints a list.
  *
@@ -8,9 +7,14 @@ typedef enum {EMPTY, NOT_EMPTY} htMode;
  */
 void print_list(const hash_node_t *head)
 {
+	static printMode mode = NOT_PRINTED;
+
 	while (head != NULL)
 	{
-		printf("'%s': '%s', ", head->key, head->value);
+		if (mode == PRINTED)
+			printf(", ");
+		printf("'%s': '%s'", head->key, head->value);
+		mode = PRINTED;
 		head = head->next;
 	}
 }
@@ -22,7 +26,6 @@ void print_list(const hash_node_t *head)
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	htMode mode = EMPTY;
 	unsigned long int i;
 
 	if (ht == NULL)
@@ -34,9 +37,6 @@ void hash_table_print(const hash_table_t *ht)
 		if (ht->array[i] == NULL)
 			continue;
 		print_list(ht->array[i]);
-		mode = NOT_EMPTY;
 	}
-	if (mode == NOT_EMPTY)
-		printf("\b\b");
 	printf("}\n");
 }
