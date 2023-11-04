@@ -12,7 +12,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int hash;
-	hash_node_t *bucket;
+	hash_node_t *bucket, *current_bucket;
 
 	if (ht == NULL || key == NULL || *key == '\0')
 		return (0);
@@ -31,7 +31,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[hash] = bucket;
 	else
 	{
-		bucket->next = ht->array[hash];
+		current_bucket = ht->array[hash];
+		bucket->next = current_bucket;
 		ht->array[hash] = bucket;
 	}
 	return (1);
