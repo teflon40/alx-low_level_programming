@@ -11,23 +11,17 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int hash;
+	unsigned long int hash = 0;
 	hash_node_t *bucket;
 
-	if (ht == NULL || key == NULL || *key == '\0')
-		return (0);
-	if (value == NULL)
+	if (ht == NULL || key == NULL)
 		return (0);
 
 	bucket = (hash_node_t *) malloc(sizeof(hash_node_t));
 	if (bucket == NULL)
 		return (0);
 	bucket->key = strdup(key);
-	if (bucket->key == NULL)
-		return (0);
 	bucket->value = strdup(value);
-	if (bucket->value == NULL)
-		return (0);
 	bucket->next = NULL;
 
 	hash = key_index((unsigned char *) key, ht->size);
