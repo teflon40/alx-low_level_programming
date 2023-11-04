@@ -27,7 +27,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	bucket->value = strdup(value);
 	if (bucket->value == NULL)
-		return (NULL);
+		return (0);
 	bucket->next = NULL;
 
 	hash = key_index((unsigned char *) key, ht->size);
