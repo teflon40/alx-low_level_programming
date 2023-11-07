@@ -24,9 +24,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (strcmp(key, curr->key) == 0)
 		{
-			free(curr->key);
-			free(curr->value);
-			curr->key = strdup(key);
 			curr->value = strdup(value);
 			break;
 		}
