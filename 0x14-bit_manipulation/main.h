@@ -5,10 +5,10 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define Bit_Value(x, y)		(((x) >> (y)) & 0x1)
+#define Bit_Value(n, bit)	(((n) >> (bit)) & 0x1)
 #define Bit_Width(n)		(sizeof(n) * 8)
-#define Set_Bit(n, bit)		((n) | (1 << (bit)))
-
+#define Bit_ON(n, bit)		((n) | (1 << (bit)))
+#define Bit_OFF(n, bit)		(Bit_Value(n, bit) ? ((n)^(1 << (bit))) : (n))
 /* Function prototypes */
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int);
