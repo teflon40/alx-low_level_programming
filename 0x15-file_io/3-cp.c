@@ -16,7 +16,7 @@ int main(int ac, char *av[])
 	ssize_t num_read;
 
 	if (ac != 3)
-		print_error(97, "Usage: file_from file_to\n");
+		print_error(97, "Usage: cp file_from file_to\n");
 	in_fd = open(av[1], O_RDONLY);
 	if (in_fd < 0)
 		print_error(98, "Error: Can't read from file %s\n", av[1]);
