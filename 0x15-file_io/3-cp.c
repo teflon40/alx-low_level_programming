@@ -51,12 +51,7 @@ void print_error(int status, const char *format, ...)
 	va_list ap;
 
 	va_start(ap, format);
-	if (status == 97)
-		dprintf(STDERR_FILENO, "%s", format);
-	else if (status == 100)
-		dprintf(STDERR_FILENO, format, va_arg(ap, int));
-	else
-		dprintf(STDERR_FILENO, format, va_arg(ap, char *));
+	vdprintf(STDERR_FILENO, format, ap);
 	va_end(ap);
 	exit(status);
 }
