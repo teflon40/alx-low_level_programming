@@ -14,6 +14,6 @@ int set_bit(unsigned long int *n, unsigned int index)
 
 	if (index >= bit_len)
 		return (-1);
-	*n = Set_Bit(*n, index);
+	*n = Bit_ON(*n, index);
 	return (1);
 }
