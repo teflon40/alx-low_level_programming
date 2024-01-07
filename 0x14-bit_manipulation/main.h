@@ -6,6 +6,7 @@
 #include <stdint.h>
 
 #define Bit_Value(x, y)		(((x) >> (y)) & 0x1)
+#define Bit_Width(n)		(sizeof((n)) * 8)
 /* Function prototypes */
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int);
